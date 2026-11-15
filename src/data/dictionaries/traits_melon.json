@@ -1,0 +1,75 @@
+{
+  "crop": "Melon",
+  "scientificName": "Cucumis melo L.",
+  "officialStandard": "UPOV TG/104/5 & PVTPP Kementerian Pertanian RI",
+  "traits": [
+    {
+      "traitDbId": "TR-MEL-01",
+      "traitCode": "BRIX_CONTENT",
+      "officialRef": "UPOV TG/104/5 Char 43",
+      "nameId": "Kadar Padatan Terlarut (Brix / Kemanisan)",
+      "nameEn": "Soluble Solids Content",
+      "category": "QUALITY",
+      "scaleType": "NUMERICAL",
+      "unit": "°Brix",
+      "min": 6.0,
+      "max": 19.0,
+      "step": 0.1
+    },
+    {
+      "traitDbId": "TR-MEL-02",
+      "traitCode": "FRUIT_NETTING_DENSITY",
+      "officialRef": "UPOV TG/104/5 Char 26",
+      "nameId": "Kerapatan Jaring Kulit Buah (Netting)",
+      "nameEn": "Density of Netting",
+      "category": "MORPHOLOGY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Tanpa Jaring / Mulus Licin" },
+        { "score": 2, "labelId": "2 - Jarang / Parsial" },
+        { "score": 3, "labelId": "3 - Sedang / Sedang Rapat" },
+        { "score": 4, "labelId": "4 - Sangat Rapat & Tebal Sempurna" }
+      ]
+    },
+    {
+      "traitDbId": "TR-MEL-03",
+      "traitCode": "POWDERY_MILDEW_RES",
+      "officialRef": "UPOV TG/104/5 Char 47",
+      "nameId": "Ketahanan Embun Tepung (Podosphaera xanthii Ras 1)",
+      "nameEn": "Powdery Mildew Race 1 Resistance",
+      "category": "PATHOLOGY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Sangat Rentan (Bercak tepung putih menutupi daun >70%)" },
+        { "score": 3, "labelId": "3 - Moderat (Bercak tepung terbatas)" },
+        { "score": 5, "labelId": "5 - Resisten (Daun bersih hijau tanpa miselium tepung)" }
+      ]
+    },
+    {
+      "traitDbId": "TR-MEL-04",
+      "traitCode": "MELON_WEIGHT",
+      "officialRef": "UPOV TG/104/5 Char 18",
+      "nameId": "Bobot Buah per Butir",
+      "nameEn": "Fruit Weight",
+      "category": "YIELD",
+      "scaleType": "NUMERICAL",
+      "unit": "gram",
+      "min": 500,
+      "max": 4500,
+      "step": 50
+    },
+    {
+      "traitDbId": "TR-MEL-05",
+      "traitCode": "FLESH_THICKNESS",
+      "officialRef": "UPOV TG/104/5 Char 41",
+      "nameId": "Ketebalan Daging Buah",
+      "nameEn": "Flesh Thickness",
+      "category": "MORPHOLOGY",
+      "scaleType": "NUMERICAL",
+      "unit": "mm",
+      "min": 15,
+      "max": 65,
+      "step": 1
+    }
+  ]
+}

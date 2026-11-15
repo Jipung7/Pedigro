@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pedigro — Sistem Pemuliaan & Uji Varietas Tanaman</title>
+  
+  <!-- Content Security Policy: 100% Self-Contained, Air-Gap Verified -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob:;">
+
+  <!-- PWA Manifest & Meta (Loaded conditionally on HTTP to avoid file:// CORS warning) -->
+  <script>
+    if (window.location.protocol.startsWith('http')) {
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = './manifest.json';
+      document.head.appendChild(link);
+    }
+  </script>
+  <meta name="theme-color" content="#162D22">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Local Standalone Tailwind CSS & Pedigro Palette (Zero CDN) -->
+  <link rel="stylesheet" href="./src/assets/css/tailwind.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased font-sans selection:bg-brand-700 selection:text-white">
+  <div id="root"></div>
+
+  <!-- React 18 & ReactDOM 18 Local Production UMD (Zero Network Dependency) -->
+  <script src="./src/assets/js/react.production.min.js"></script>
+  <script src="./src/assets/js/react-dom.production.min.js"></script>
+
+  <!-- Pedigro Standalone Production Pre-compiled Bundle (Zero-Babel Runtime) -->
+  <script src="./src/assets/js/app.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "crop": "Cabai",
+  "scientificName": "Capsicum annuum L. / Capsicum frutescens L.",
+  "officialStandard": "UPOV TG/76/8 (Rev.) & PVTPP Kementerian Pertanian RI",
+  "traits": [
+    {
+      "traitDbId": "TR-CAB-01",
+      "traitCode": "ANTHRACNOSE_RES",
+      "officialRef": "UPOV TG/76/8 Char 48 / AVRDC Protocol",
+      "nameId": "Ketahanan Antraknosa Buah (Colletotrichum spp.)",
+      "nameEn": "Anthracnose Resistance",
+      "category": "PATHOLOGY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Sangat Rentan (>50% buah busuk melingkar)" },
+        { "score": 2, "labelId": "2 - Rentan (25-50% buah berlesi basah)" },
+        { "score": 3, "labelId": "3 - Moderat / Agak Tahan (10-25% bercak melekuk)" },
+        { "score": 4, "labelId": "4 - Resisten / Tahan (<10% bercak kecil)" },
+        { "score": 5, "labelId": "5 - Sangat Tahan / Imun (Buah mulus bersih)" }
+      ]
+    },
+    {
+      "traitDbId": "TR-CAB-02",
+      "traitCode": "BACTERIAL_WILT_RES",
+      "officialRef": "IPGRI Descriptors 11.1.2",
+      "nameId": "Ketahanan Layu Bakteri (Ralstonia solanacearum)",
+      "nameEn": "Bacterial Wilt Resistance",
+      "category": "PATHOLOGY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Sangat Rentan (Tanaman layu permanen & mati)" },
+        { "score": 3, "labelId": "3 - Moderat (Layu sebagian ranting)" },
+        { "score": 5, "labelId": "5 - Tahan (Tanaman tetap segar & tegar)" }
+      ]
+    },
+    {
+      "traitDbId": "TR-CAB-03",
+      "traitCode": "GEMINI_VIRUS_RES",
+      "officialRef": "AVRDC / PVTPP Pedoman BUSS",
+      "nameId": "Ketahanan Virus Kuning Gemini (PepYLCV)",
+      "nameEn": "Pepper Yellow Leaf Curl Virus Resistance",
+      "category": "PATHOLOGY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Gejala Berat (Klorosis kuning, daun keriting kerdil)" },
+        { "score": 3, "labelId": "3 - Gejala Sedang (Bercak mosaik kuning ringan)" },
+        { "score": 5, "labelId": "5 - Tanpa Gejala (Daun hijau normal)" }
+      ]
+    },
+    {
+      "traitDbId": "TR-CAB-04",
+      "traitCode": "FRUIT_LENGTH",
+      "officialRef": "UPOV TG/76/8 Char 28",
+      "nameId": "Panjang Buah",
+      "nameEn": "Fruit Length",
+      "category": "MORPHOLOGY",
+      "scaleType": "NUMERICAL",
+      "unit": "cm",
+      "min": 1.0,
+      "max": 30.0,
+      "step": 0.1
+    },
+    {
+      "traitDbId": "TR-CAB-05",
+      "traitCode": "FRUIT_DIAMETER",
+      "officialRef": "UPOV TG/76/8 Char 29",
+      "nameId": "Diameter / Lebar Buah",
+      "nameEn": "Fruit Diameter",
+      "category": "MORPHOLOGY",
+      "scaleType": "NUMERICAL",
+      "unit": "mm",
+      "min": 3.0,
+      "max": 60.0,
+      "step": 0.1
+    },
+    {
+      "traitDbId": "TR-CAB-06",
+      "traitCode": "FRUIT_WEIGHT",
+      "officialRef": "Bioversity IPGRI 7.4.2",
+      "nameId": "Bobot per Butir Buah",
+      "nameEn": "Single Fruit Weight",
+      "category": "YIELD",
+      "scaleType": "NUMERICAL",
+      "unit": "gram",
+      "min": 0.5,
+      "max": 120.0,
+      "step": 0.1
+    },
+    {
+      "traitDbId": "TR-CAB-07",
+      "traitCode": "FRUIT_PUNGENCY",
+      "officialRef": "UPOV TG/76/8 Char 44",
+      "nameId": "Tingkat Kepedasan (Kapsaisin)",
+      "nameEn": "Pungency / Capsaicin Content",
+      "category": "QUALITY",
+      "scaleType": "ORDINAL",
+      "scaleLabels": [
+        { "score": 1, "labelId": "1 - Tidak Pedas / Manis (0 - 500 SHU)" },
+        { "score": 2, "labelId": "2 - Agak Pedas (500 - 5.000 SHU)" },
+        { "score": 3, "labelId": "3 - Pedas (5.000 - 30.000 SHU)" },
+        { "score": 4, "labelId": "4 - Sangat Pedas (>30.000 SHU)" }
+      ]
+    },
+    {
+      "traitDbId": "TR-CAB-08",
+      "traitCode": "DAYS_TO_HARVEST",
+      "officialRef": "PVTPP Kementan BUSS",
+      "nameId": "Umur Panen Perdana",
+      "nameEn": "Days to First Harvest",
+      "category": "PHENOLOGY",
+      "scaleType": "NUMERICAL",
+      "unit": "HST",
+      "min": 60,
+      "max": 150,
+      "step": 1
+    }
+  ]
+}

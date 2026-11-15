@@ -1,0 +1,46 @@
+{
+  "name": "pedigro",
+  "version": "1.0.0",
+  "description": "Pedigro - Plant Breeding & Variety Management Platform (BrAPI v2.1 Aligned)",
+  "author": "Jipung (Lone Steed Studio)",
+  "license": "MIT",
+  "homepage": "https://github.com/Jipung7/pedigro#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jipung7/pedigro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jipung7/pedigro/issues"
+  },
+  "scripts": {
+    "start": "node -e \"console.log('Pedigro Standalone ready. Open index.html in Edge/Chrome or launch via Tauri.')\"",
+    "icons:generate": "node scripts/generate-icons.js",
+    "verify:packaging": "node scripts/verify-packaging.js",
+    "package:portable": "node scripts/create-portable-package.js",
+    "build:desktop": "tauri build",
+    "build:mobile": "cap sync android"
+  },
+  "funding": [
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/jipung"
+    },
+    {
+      "type": "custom",
+      "url": "https://saweria.co/jipung"
+    }
+  ],
+  "keywords": [
+    "pedigro",
+    "plant-breeding",
+    "brapi",
+    "agritech",
+    "pedigree-tree",
+    "phenotyping",
+    "variety-selection",
+    "offline-first",
+    "standalone",
+    "tauri",
+    "capacitor"
+  ]
+}

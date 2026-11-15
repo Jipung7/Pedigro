@@ -1,55 +1,20 @@
-name: Build Pedigro Standalone Binaries (Windows & Android)
+name: Pedigro Release & Verification
 
 on:
   push:
     tags:
       - 'v*'
-    branches:
-      - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   # ========================================================
-  # JOB 1: Windows Desktop Installer (Tauri v2 + WebView2)
+  # JOB 1: Verification & Portable Release Package
   # ========================================================
-  build-windows:
-    name: Build Windows Desktop (.exe / .msi)
-    runs-on: windows-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Setup Rust Toolchain
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Verify Packaging Configurations
-        run: npm run verify:packaging
-
-      - name: Build Tauri Desktop Installer
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tagName: v__VERSION__
-          releaseName: 'Pedigro v__VERSION__'
-          releaseBody: 'Rilis resmi biner Pedigro - Sistem Pemuliaan & Uji Varietas Tanaman.'
-          releaseDraft: false
-          prerelease: false
-
-  # ========================================================
-  # JOB 2: Android Mobile Package (Capacitor + Gradle APK)
-  # ========================================================
-  build-android:
-    name: Build Android APK
+  release-portable:
+    name: Verify & Publish Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -60,27 +25,33 @@ jobs:
         with:
           node-version: 20
 
-      - name: Setup Java JDK 17
-        uses: actions/setup-java@v4
+      - name: Verify Packaging Configurations
+        run: node scripts/verify-packaging.js
+
+      - name: Create Official GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          name: Pedigro ${{ github.ref_name }}
+          body: |
+            ## Pedigro ${{ github.ref_name }} — Official Standalone Release
+            
+            Platform Pemuliaan & Uji Varietas Tanaman (BrAPI v2.1 Aligned) — 100% Offline-First & Standalone.
+            
+            ### Cara Menjalankan di Windows:
+            1. Unduh berkas `Pedigro-v1.0.0-Portable-Windows.zip` di bawah.
+            2. Ekstrak zip ke folder komputer Anda.
+            3. Klik dua kali berkas `Pedigro-Launcher.bat` untuk membuka aplikasi dalam mode jendela mandiri (Native App Window).
+            
+            ### Ringkasan Fitur:
+            - Arsitektur mandiri (Zero-Dependency) tanpa instalasi Node.js/Internet.
+            - Visualisasi Pohon Silsilah (Pedigree Tree) & Skema Data BrAPI v2.1.
+            - Validasi & Rekomendasi Seleksi Varietas (UU PVT No. 29/2000).
+            - Kompresi Cerdas Foto Makro Botani (Full HD 1920px, ~300 KB).
+            - Backup Kriptografis SHA-256 dengan Deteksi Integritas Data.
+            - Terintegrasi Pemindai Kamera QR & Penanda Koordinat GPS.
+          files: |
+            build/Pedigro-v1.0.0-Portable-Windows.zip
+          draft: false
+          prerelease: false
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Sync Capacitor Android
-        run: npx cap sync android
-
-      - name: Build Release APK
-        working-directory: ./android
-        run: ./gradlew assembleRelease --no-daemon
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Pedigro-Android-Release
-          path: android/app/build/outputs/apk/release/*.apk
